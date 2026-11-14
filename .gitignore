@@ -1,0 +1,5 @@
+*.en-bak
+*.bak-*
+*.swap-tmp
+.DS_Store
+Thumbs.db
