@@ -106,7 +106,7 @@
   },
   {
    "key": "advanced",
-   "label": "Advanced settings",
+   "label": "高级设置",
    "type": "bool",
    "default": false
   },
