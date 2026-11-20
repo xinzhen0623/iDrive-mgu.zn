@@ -3,6 +3,6 @@
   "versionCode": 30,
   "url": "https://aka.doubaocdn.com/s/FhuJd5c7Gq",
   "mirror": "https://aka.doubaocdn.com/s/FhuJd5c7Gq",
-  "sha256": "18a5164625083fc5326dee5fcce2e83ad42755eb2fde785d8cc04a62c41b232",
+  "sha256": "18a5164625083fc5326de9e5fcce2e83ad42755eb2fde785d8cc04a62c41b232",
   "notes": "v0.9.20：按车机端 dtc_scanner 源码修正故障码功能。① 读码改成功能寻址广播：一条 19 02 发往 0xDF（223），各控制单元自发应答，不再逐地址物理寻址 98 次，扫描从 1～3 分钟降到十几秒。② 故障文本改为型号表优先（先用 22 F1 50 读固体 SGBD 索引，查 tables/variant），地址表兜底，实测 12:CDBA3B 只查地址表会漏。③ 清码补上 10 03 扩展会话重试与 10 01 回退，清全部改为先广播再逐个。④ 广播应答里出现、拓扑表里没有的地址会现场补一行。"
 }
