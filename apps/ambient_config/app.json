@@ -1,7 +1,7 @@
 {
  "id": "ambient_config",
  "title": "氛围灯配置",
- "description": "Any colour on the ambient light, animations, and a look for each driving mode",
+ "description": "氛围灯任意配色、动画效果，以及每种驾驶模式的专属外观",
  "version": "2.5.0-zh.cn.4",
  "vendor": "custom",
  "loggingId": "OAA4",
@@ -21,7 +21,7 @@
    "statusAmbientLightInteriorColour": "rs"
   },
   "de.bmw.infotainment.drivingexcitement.FES": {
-   "_optional": "the driving mode: colours by mode",
+   "_optional": "驾驶模式：按模式切换颜色",
    "statusFESVehicleDynamicSwitchHMI": "rs"
   },
   "com.harman.infotainment.systemfunctions.tasu.tasu.InternalTasu": {
@@ -34,23 +34,23 @@
    ]
   },
   "de.bmw.infotainment.vehicle.Vehicle": {
-   "_optional": "day or night: dimmer at night",
+   "_optional": "白天或夜间：夜间变暗",
    "statusDayNightChangeOver": "rs"
   },
   "de.bmw.infrastructure.VehicleCondition": {
-   "_optional": "the car locked and left: the car's own light",
+   "_optional": "车辆锁车离开后：由车辆自身灯光接管",
    "VehicleCondition": "s"
   },
   "de.bmw.body.Light": {
-   "_optional": "the turn signals: that side's lights breathe green",
+   "_optional": "转向信号：该侧灯光绿色呼吸",
    "StatusFunctionsIndicators": "s"
   },
   "de.bmw.body.DoorsWindowsRoofMirrors": {
-   "_optional": "an open door: its lights red",
+   "_optional": "某扇门打开：该侧灯光转红",
    "CentralLockingSystemAndPanelStatus": "s"
   },
   "de.bmw.infotainment.vehicle.Vehicle2": {
-   "_optional": "the car's speed: driven (for a car that does not say it is locked and left), and the light show only standing still",
+   "_optional": "车速：判断是否已行驶（针对不报告锁车离开的车辆），灯光演示仅在静止时播放",
    "statusCarSpeed2": "rs"
   }
  },
