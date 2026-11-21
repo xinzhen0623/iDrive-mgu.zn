@@ -1,9 +1,9 @@
 {
-  "version": "0.9.30",
-  "versionCode": 40,
-  "url": "https://aka.doubaocdn.com/s/atc37sTDyW",
-  "mirror": "https://aka.doubaocdn.com/s/ORKhAc5oMV",
-  "sha256": "6ccd28ecd687560641bc653c5364cfe33ddce1943d0090d72d36ff9fba6e691c",
-  "notes": "v0.9.30：① 修「开 SSH（诊断 enroll）」在 Android 上必崩——buildCertificate 原来强转 RSAPrivateCrtKey，Conscrypt 解 PKCS#8 得到的是 OpenSSLRSAPrivateKey（无 CRT 参数），必然抛「enrollment key 不是 RSA CRT 私钥」，31 01 A0 FD 一次都没发出去。现改为自解析 n/e 构造公钥与 SKI/AKI、签名走独立 pmoSigner，不再依赖 CRT，并加 2048 位长度校验。② enroll 失败不再假成功：doEnableSsh 的 catch 补 throw，失败显示 ✘。③ 上一版内容照旧：DoIP 开启帧、故障码四项（紧凑布局/选单元扫描/隐藏不在线/结果导出）。",
-  "size": 20523772
+  "version": "0.9.31",
+  "versionCode": 41,
+  "url": "https://aka.doubaocdn.com/s/S4zvtAuIpA",
+  "mirror": "https://aka.doubaocdn.com/s/kUoGDFRcC1",
+  "sha256": "3819278bb765461b1bf424c58241a9a98ed8ba50523fcf4c2e6249412edd9ba1",
+  "notes": "v0.9.31：① 开 SSH 成功后密码自动填入密码框（ts&SK412，手填过则不覆盖）。② 密码框改为明文显示（textVisiblePassword），不遮罩。③ 新增「复制密码」「复制私钥」两个按钮，一键进剪贴板，可直接粘到电脑 PowerShell/PuTTY/WinSCP。④ 成功后「登录凭据」自动展开，箭头同步为收起。⑤ 含 0.9.30 的 enroll 崩溃修复（RSAPrivateCrtKey 强转改为自解析 n/e + 独立 pmoSigner，失败不再假显示 ✔）与 0.9.29 的 DoIP 开启帧、故障码四项。",
+  "size": 20525480
 }
