@@ -1,9 +1,9 @@
 {
-  "version": "0.9.34",
-  "versionCode": 44,
-  "url": "https://aka.doubaocdn.com/s/TmfJPdu8Td",
-  "mirror": "https://aka.doubaocdn.com/s/R1reWa2I00",
-  "sha256": "3e73fbe89e63ad9f6be65e50adcf86c1c54e2677695792eeffd9ff82dd15a932",
-  "notes": "v0.9.34 改的是 CAFD 提取与恢复这一块，写车照旧停用。① 按钮改名「CAFD 提取（诊断只读，逐块核对 + 导出结构）」，读法不变（UDS 0x22、默认会话、两遍互比），导出从 3 个文件扩到 6 个：backup.json（新增 cafdVersion）、coding_MGU.txt（DID: HEX，与上游 preflight.py 同格式）、cafd_blocks.csv（Excel 带 BOM 不乱码）、cafd_raw.bin（按 NCD 的 CB 布局 0x300000 起每块 0x100 步长的裸镜像，不是可加载 NCD）、CAFD结构.txt、RESTORE.txt，外加 SHA256SUMS。② 块语义只按有出处的编号下结论：0x3000-0x3015 是 CB、0x3006 是 CAF_ID（块内第 5-7 字节为编码版本 major.minor.patch，major 必须 3）、0x3016 是 MGU 的 NCD 签名块（BimmerCode 每次改动都重算它）、0x3017-0x30FF 标「CB 编号未核实」、0x3100-0x3FFF 标非 CB 段。③ 恢复给了三档：E-Sys 对 HU_MGU 做 VO coding；BimmerCode + OpenCAFDMap Backup Editor 做 in-place 字节改再由 BimmerCode 重算签名写回；或只拿对照表核对。④ 对照表重做为 9 列（DID/状态/块语义/备份字节数/当前字节数/差异字节数/首个差异位置/备份HEX/当前HEX），并另出 CAFD差异-时间.txt 逐字节列出「第 N 字节: 备份 xx -> 当前 yy」。⑤ 两道新门禁：备份与当前 0x3006 编码版本不一致直接拒绝并提示按车辆 VO 重新编码；apply 循环读到 0x3016 立即中止不写签名块。⑥ 车上实测仍是 2E 30 00 回 NRC 0x31，要写需编程/扩展会话 + 27 SecurityAccess，密钥在 SGBD 拿不到，所以手机端口径就是只读提取。本版未做实车回归。",
-  "size": 20554176
+  "version": "0.9.35",
+  "versionCode": 45,
+  "url": "https://aka.doubaocdn.com/s/KJ2xCkSl8j",
+  "mirror": "https://aka.doubaocdn.com/s/RnKODf3MzO",
+  "sha256": "e643812972becf36ef38252520b1a2db1e14215dd1740493c2aa3764a6a2412f",
+  "notes": "v0.9.35 两件事。① 签名固定：工程内自带 keystore/mgu.jks，debug 与 release 共用，任何机器编出来的包签名一致（证书 SHA-256 59bdbe9d...72cc）。注意本版与之前所有版本签名均不同，安装前必须先卸载旧版，装完重填网关 IP / 端口；从本版起以后都能直接覆盖。② 新增「写入可行性探测」：只发 22 3006 基线、10 03 扩展会话、27 01 取种子、最后 10 01 回默认会话，绝不发 27 02（密钥猜错会触发 NRC 0x36 锁），也绝不发 2E 或任何写服务，物理上不可能改车。结果分四种：10 03 被拒 = 这条路封死；10 03 通但 27 01 被拒 = 卡在 SecurityAccess（密钥算法在 SGBD）；27 01 给了种子 = 唯一还有余地，差的只是 seed→key 算法；基线读不到 = 先修通信。每次生成 Coding写入探测-时间.txt 可分享。③ CAFD 提取与对照表导出沿用 0.9.34 未改。④ 未实车回归。",
+  "size": 20648570
 }
