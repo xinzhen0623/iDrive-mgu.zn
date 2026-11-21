@@ -1,8 +1,8 @@
 {
-  "version": "0.9.28",
-  "versionCode": 38,
-  "url": "https://aka.doubaocdn.com/s/hZSFfCvw38",
-  "mirror": "https://aka.doubaocdn.com/s/RVUC2BrCSJ",
-  "sha256": "b9f944b89b2ac6d4c31ab60a96432aad6e0954c644dca067d60da8f1ca349112",
-  "notes": "v0.9.28：故障码卡片改成「只显示中文」——不再并排英文原文，中文描述字号从 12sp 提到 14sp、码 15sp；状态位那一长串（测试失败/本循环失败/待定/已确认/测试未完成/历史码）收成三态「当前故障：是 / 否 / 未知」。是 = 本循环确实失败过或已确认；否 = 本循环测过且通过；未知 = 本循环没测完或没有状态位。英文原文仍写进日志，需要核对时看日志。其余功能同 0.9.27。"
+  "version": "0.9.29",
+  "versionCode": 39,
+  "url": "https://aka.doubaocdn.com/s/7SqVjJYxhP",
+  "mirror": "https://aka.doubaocdn.com/s/hAjVjhEkh6",
+  "sha256": "7bc7d4fa3643c0b49d723ee93b9e1fdf222f3d89c9e54682d0f1b0606a4ba190",
+  "notes": "v0.9.29：① DoIP 开启帧——ICOM 的 DoIP 开关打开后，连接时先用 UDP 发 02FD F080 00000002 0100 到 255.255.255.255:6811（源端口尽量 7811，同 DoIP Config 工具的 DoIP ON），再连 TCP 6811、再发路由激活，盒子不收到这段不转发诊断。② 故障码卡片更紧凑：码与「当前故障：是/否/未知」并到第一行，中文独占整行，码 16sp；列表按 是→未知→否 排序。③ 新增「选单元扫描」：勾选要扫的控制单元只扫这几个（可一键只扫有故障的）。④ 新增「隐藏不在线」：隐藏探活无应答/无应答的单元，一键切换。⑤ 新增「保存结果」：导出 CSV（带 BOM，Excel 直开不乱码）+ 扫描明细 txt 到 Android/data/com.mgu.phone/files/dtc/，可直接发送。IP 探测与刷写报文未改动。"
 }
