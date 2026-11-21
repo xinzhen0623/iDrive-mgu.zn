@@ -1,8 +1,9 @@
 {
-  "version": "0.9.29",
-  "versionCode": 39,
-  "url": "https://aka.doubaocdn.com/s/7SqVjJYxhP",
-  "mirror": "https://aka.doubaocdn.com/s/hAjVjhEkh6",
-  "sha256": "7bc7d4fa3643c0b49d723ee93b9e1fdf222f3d89c9e54682d0f1b0606a4ba190",
-  "notes": "v0.9.29：① DoIP 开启帧——ICOM 的 DoIP 开关打开后，连接时先用 UDP 发 02FD F080 00000002 0100 到 255.255.255.255:6811（源端口尽量 7811，同 DoIP Config 工具的 DoIP ON），再连 TCP 6811、再发路由激活，盒子不收到这段不转发诊断。② 故障码卡片更紧凑：码与「当前故障：是/否/未知」并到第一行，中文独占整行，码 16sp；列表按 是→未知→否 排序。③ 新增「选单元扫描」：勾选要扫的控制单元只扫这几个（可一键只扫有故障的）。④ 新增「隐藏不在线」：隐藏探活无应答/无应答的单元，一键切换。⑤ 新增「保存结果」：导出 CSV（带 BOM，Excel 直开不乱码）+ 扫描明细 txt 到 Android/data/com.mgu.phone/files/dtc/，可直接发送。IP 探测与刷写报文未改动。"
+  "version": "0.9.30",
+  "versionCode": 40,
+  "url": "https://aka.doubaocdn.com/s/atc37sTDyW",
+  "mirror": "https://aka.doubaocdn.com/s/ORKhAc5oMV",
+  "sha256": "6ccd28ecd687560641bc653c5364cfe33ddce1943d0090d72d36ff9fba6e691c",
+  "notes": "v0.9.30：① 修「开 SSH（诊断 enroll）」在 Android 上必崩——buildCertificate 原来强转 RSAPrivateCrtKey，Conscrypt 解 PKCS#8 得到的是 OpenSSLRSAPrivateKey（无 CRT 参数），必然抛「enrollment key 不是 RSA CRT 私钥」，31 01 A0 FD 一次都没发出去。现改为自解析 n/e 构造公钥与 SKI/AKI、签名走独立 pmoSigner，不再依赖 CRT，并加 2048 位长度校验。② enroll 失败不再假成功：doEnableSsh 的 catch 补 throw，失败显示 ✘。③ 上一版内容照旧：DoIP 开启帧、故障码四项（紧凑布局/选单元扫描/隐藏不在线/结果导出）。",
+  "size": 20523772
 }
