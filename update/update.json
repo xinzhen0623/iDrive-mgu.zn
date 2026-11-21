@@ -1,9 +1,9 @@
 {
-  "version": "0.9.31",
-  "versionCode": 41,
-  "url": "https://aka.doubaocdn.com/s/S4zvtAuIpA",
-  "mirror": "https://aka.doubaocdn.com/s/kUoGDFRcC1",
-  "sha256": "3819278bb765461b1bf424c58241a9a98ed8ba50523fcf4c2e6249412edd9ba1",
-  "notes": "v0.9.31：① 开 SSH 成功后密码自动填入密码框（ts&SK412，手填过则不覆盖）。② 密码框改为明文显示（textVisiblePassword），不遮罩。③ 新增「复制密码」「复制私钥」两个按钮，一键进剪贴板，可直接粘到电脑 PowerShell/PuTTY/WinSCP。④ 成功后「登录凭据」自动展开，箭头同步为收起。⑤ 含 0.9.30 的 enroll 崩溃修复（RSAPrivateCrtKey 强转改为自解析 n/e + 独立 pmoSigner，失败不再假显示 ✔）与 0.9.29 的 DoIP 开启帧、故障码四项。",
-  "size": 20525480
+  "version": "0.9.32",
+  "versionCode": 42,
+  "url": "https://aka.doubaocdn.com/s/aU7HAIXeME",
+  "mirror": "https://aka.doubaocdn.com/s/pIwyUiprYx",
+  "sha256": "a0f95329e0db4c2e1a1fa23d09f0498abf76d12c4a6b98383ed286db1f12d960",
+  "notes": "v0.9.32：① 处理「CAFD 写入失败」——日志 2E 30 00 C8 23 → 7F 2E 31（NRC 0x31 requestOutOfRange），说明 HU_MGU 默认会话不认这个可写 DID，要 10 03/10 02 + 27 解锁，手机端无密钥。② 对照上游 idrive7-8-ssh-root：mgu7/preflight.py 只做只读备份，RESTORE.txt 让用 E-Sys/BimmerCode 的 VO coding，issue #10 证实整段 blob 写回会让 HU 设置反复重置。③ 按钮改为「导出 CAFD 对照表（写回已停用）」，点击先弹窗说明证据，再导出 CSV（DID/状态/字节数/备份HEX/当前HEX，带 BOM）与说明 txt，可直接分享。④ 试写保留但降为不推荐选项；NRC 0x31/0x33/0x22 分开解释。⑤ 含 0.9.31 密码自动填+明文+一键复制、0.9.30 enroll 崩溃修复。",
+  "size": 20531292
 }
