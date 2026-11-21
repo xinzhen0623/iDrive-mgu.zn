@@ -1,9 +1,9 @@
 {
-  "version": "0.9.32",
-  "versionCode": 42,
-  "url": "https://aka.doubaocdn.com/s/aU7HAIXeME",
-  "mirror": "https://aka.doubaocdn.com/s/pIwyUiprYx",
-  "sha256": "a0f95329e0db4c2e1a1fa23d09f0498abf76d12c4a6b98383ed286db1f12d960",
-  "notes": "v0.9.32：① 处理「CAFD 写入失败」——日志 2E 30 00 C8 23 → 7F 2E 31（NRC 0x31 requestOutOfRange），说明 HU_MGU 默认会话不认这个可写 DID，要 10 03/10 02 + 27 解锁，手机端无密钥。② 对照上游 idrive7-8-ssh-root：mgu7/preflight.py 只做只读备份，RESTORE.txt 让用 E-Sys/BimmerCode 的 VO coding，issue #10 证实整段 blob 写回会让 HU 设置反复重置。③ 按钮改为「导出 CAFD 对照表（写回已停用）」，点击先弹窗说明证据，再导出 CSV（DID/状态/字节数/备份HEX/当前HEX，带 BOM）与说明 txt，可直接分享。④ 试写保留但降为不推荐选项；NRC 0x31/0x33/0x22 分开解释。⑤ 含 0.9.31 密码自动填+明文+一键复制、0.9.30 enroll 崩溃修复。",
-  "size": 20531292
+  "version": "0.9.33",
+  "versionCode": 43,
+  "url": "https://aka.doubaocdn.com/s/OnKJoY1aoY",
+  "mirror": "https://aka.doubaocdn.com/s/lO7Euscjf7",
+  "sha256": "d25470f305d77888969f763c69a908cfd4ce012e030be2fe6398c6fd9cf307f2",
+  "notes": "v0.9.33 适配器页增加「蓝牙」：① 适配器类型变三项 ENET / ICOM / 蓝牙。② 蓝牙卡：开关与权限状态、bt-pan 网卡与 IP、已配对设备列表（点一下把诊断绑到它并尝试拉起网络共享）、一键跳系统蓝牙设置、刷新设备与网卡。③ 网卡识别支持 bt-pan / btpan / bnep，可出现在「走哪块网卡」下拉，网卡体检单独列一行。④ Android 12+ 申请 BLUETOOTH_CONNECT / SCAN（neverForLocation），11 及以下用旧权限。⑤ 口径：蓝牙只是网络承载，PAN 通了之后 HSFZ 6801 / DoIP 6811 照旧走 IP，与 ENET 共用全部代码；蓝牙 OBD（ELM327 一类串口盒子）对 MGU 无效，未做。⑥ 真相：BluetoothPan 是隐藏类、connect() 需 BLUETOOTH_PRIVILEGED，多数 ROM 会 SecurityException，本版先试一次、失败就把系统原话贴出来并引导手动开网络共享，不谎报。⑦ 含 0.9.32 的 CAFD 对照表导出与 SSH 凭据自动填。",
+  "size": 20542384
 }
