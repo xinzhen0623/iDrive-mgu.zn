@@ -1,9 +1,9 @@
 {
-  "version": "0.9.54",
-  "versionCode": 64,
-  "url": "https://aka.doubaocdn.com/s/qM1cFSJmpZ",
-  "mirror": "https://aka.doubaocdn.com/s/8k2O6BVnkr",
-  "sha256": "64dff81e0dade4edde95263cdf741962ffc43069e44d4b233725c3eb1e4f9a6d",
-  "notes": "v0.9.54 CAFD 写回并成一步: 刷写开始自动判断本机有无同 VIN 可用编码备份, 有就用(不重复抓), 没有就静默抓一份当前编码(只读)存 cafd/, 刷完第 ⑨ 步自动写回, 只需点一次刷写。修: ① 空壳备份(整块 FF)不再当回写源, 规则=同 VIN -> 排除一半以上为 FF -> verified 优先 -> 时间戳最新; ② bootloader 时跳过刷前快照。带 0.9.53 预检修复。签名仍 59bdbe9d...。",
-  "size": 21151736
+  "version": "0.9.55",
+  "versionCode": 65,
+  "url": "https://aka.doubaocdn.com/s/GxNiBNHaCM",
+  "mirror": "https://aka.doubaocdn.com/s/6xsIvCTIVF",
+  "sha256": "fbc728fb807de7ddd3e20292378ac7756b8630567924de499de99d36ffd19cb8",
+  "notes": "v0.9.55 备份目录收干净: cafd/<VIN>/<时间戳>/, 每份只留 backup.json + coding_*.json, 其它文件全不生成; 每 VIN 最3份, 旧版扁平文件夹自动归位, 找备份改递归。带 0.9.54 一条龙与 0.9.53 预检修复。签名仍 59bdbe9d...。",
+  "size": 20734616
 }
