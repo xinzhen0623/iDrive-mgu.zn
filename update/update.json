@@ -1,9 +1,9 @@
 {
-  "version": "0.9.59",
-  "versionCode": 69,
-  "url": "https://aka.doubaocdn.com/s/av3JEPDlfS",
-  "mirror": "https://aka.doubaocdn.com/s/9BAvOV1Qf8",
-  "sha256": "7d0baa8afcd183d651ce3a7498c39cd6602db6f7c858f7e7f9860ea28a9af876",
-  "notes": "v0.9.59 修 CarPlay 一键装 inactive 误判为 active 的 bug。",
-  "size": 20735078
+  "version": "0.9.60",
+  "versionCode": 70,
+  "url": "https://aka.doubaocdn.com/s/oEYa4NBGee",
+  "mirror": "https://aka.doubaocdn.com/s/sn4Vgvf3H4",
+  "sha256": "7bafc89d5667ca6ebe11bce6e9976ddb16543e62b5e425c0b36833802c0b702a",
+  "notes": "v0.9.60 CarPlay 按上游源码重写: MGU 版本识别 + status 三条件判定 + 投屏装完复核 + 长按导入 client js。",
+  "size": 20739405
 }
