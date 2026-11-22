@@ -1,9 +1,9 @@
 {
-  "version": "0.9.58",
-  "versionCode": 68,
-  "url": "https://aka.doubaocdn.com/s/VPiMR2ivsR",
-  "mirror": "https://aka.doubaocdn.com/s/C6Y5IxlXlY",
-  "sha256": "a06f3c953def392f900fa4d98e0290dfeb4de36b6e912490bb53592fe0f1c3ec",
-  "notes": "v0.9.58 吸收下载目录里的改动: CAFD 从 7 个控件巧成 3 个(①备份 ②写入一步式 ③备份文件-列表/打开/另存/导入/快照); 修掉 mainapp-patch.js 的 ancchr 拼写 bug(之前显示钩子必然失败, 装成功但 Apps 里看不到); CarPlay 保持一键装/卸只统一文案。",
-  "size": 20734712
+  "version": "0.9.59",
+  "versionCode": 69,
+  "url": "https://aka.doubaocdn.com/s/av3JEPDlfS",
+  "mirror": "https://aka.doubaocdn.com/s/9BAvOV1Qf8",
+  "sha256": "7d0baa8afcd183d651ce3a7498c39cd6602db6f7c858f7e7f9860ea28a9af876",
+  "notes": "v0.9.59 修 CarPlay 一键装的子串 bug: clusterState.contains(active) 把 inactive 当成在跑, 导致没装却报已在跑跳过; 改为精确比 active 且先查 mgu-deploy/cluster-render/client。多点触控不匹配时明确说明是 carplay 版本不匹配(2890992B vs 3484912B), 不再让人反复点。末尾加下一步指引。",
+  "size": 20735078
 }
