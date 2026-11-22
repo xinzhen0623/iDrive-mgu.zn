@@ -1,9 +1,9 @@
 {
-  "version": "0.9.57",
-  "versionCode": 67,
-  "url": "https://aka.doubaocdn.com/s/ztkj5CUj1t",
-  "mirror": "https://aka.doubaocdn.com/s/aPqL2VKwQJ",
-  "sha256": "383ed961897ee95e2857fbf2951b960a66cf4e6d9316826539c44f990e45db50",
-  "notes": "v0.9.57 CarPlay 从 5 个按钮巧成 2 个: 一键安装(先只读探测再按实际情况装多点触控+仪表投屏, 装不上的逐条说明缺什么)、一键卸载(两条一起退, 投屏交给车机 mgu-deploy 回滚)。查状态并入安装前探测。带 0.9.56 的手动恢复 CAFD 一步式。",
-  "size": 20733676
+  "version": "0.9.58",
+  "versionCode": 68,
+  "url": "https://aka.doubaocdn.com/s/VPiMR2ivsR",
+  "mirror": "https://aka.doubaocdn.com/s/C6Y5IxlXlY",
+  "sha256": "a06f3c953def392f900fa4d98e0290dfeb4de36b6e912490bb53592fe0f1c3ec",
+  "notes": "v0.9.58 吸收下载目录里的改动: CAFD 从 7 个控件巧成 3 个(①备份 ②写入一步式 ③备份文件-列表/打开/另存/导入/快照); 修掉 mainapp-patch.js 的 ancchr 拼写 bug(之前显示钩子必然失败, 装成功但 Apps 里看不到); CarPlay 保持一键装/卸只统一文案。",
+  "size": 20734712
 }
