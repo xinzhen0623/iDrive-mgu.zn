@@ -1,9 +1,9 @@
 {
-  "version": "0.9.40",
-  "versionCode": 50,
-  "url": "https://aka.doubaocdn.com/s/Ok6qUVWYNF",
-  "mirror": "https://aka.doubaocdn.com/s/153LTk8AFA",
-  "sha256": "5cccceb5193abb0afa9cd9128b038e732fb55ee777596c8b3582fa8055fdacd3",
-  "notes": "v0.9.40 照用户提供的 ISTA 4.57.21「过程记录 Operations report」PDF 重构诊断报告。故障码页新增「诊断报告（预览 / 导出）」：点开先全屏预览（WebView 渲染，预览与导出是同一份 HTML，所见即所获），底部可导出 HTML 或 CSV。三块版式对齐 ISTA：诊断过程（车架号 VIN / 车型 SVK / 集成等级 I-Step / 适配器 / 诊断网关 / 扫描开始 / 持续时间 / 应答单元 / 故障码条数）、车辆测试全部（每个控制单元一行：地址 / 名称 / SGBD 型号 / 结果 io 或 nio / 故障条数）、故障清单（每个故障一行：地址 / 控制单元 / 设码编号 / 说明 / 目前是否存在 / 状态字节）。CSV 列同步改成 ISTA 故障清单口径，并在前四行加车辆信息头。导出后弹窗可关闭 / 分享 / 直接用系统浏览器打开。里程、故障分组、BNTN 这几列 App 没有真实数据，不做占位也不填 0，直接不出现在表里，只写一行「里程 — 本 App 未读取，需要里程请看 ISTA」。SGBD 与型号取 22 F1 50 真实回读值，读不到显示「—」，不用同地址其它型号顶替。报告脚注写明三态口径、中文来源、保留英文范围、非 BMW 官方文件。另附一份用实车 34 条数据生成的样例 HTML 供预览版式。签名仍为 59bdbe9d...，可直接覆盖 0.9.35 至 0.9.39。读码、清码、拓扑、DoIP、适配器、车辆信息、CAFD 与写原值实测、故障码翻译逻辑零改动。",
-  "size": 20707670
+  "version": "0.9.41",
+  "versionCode": 51,
+  "url": "https://aka.doubaocdn.com/s/ryLlEoZiPh",
+  "mirror": "https://aka.doubaocdn.com/s/xeumHemWap",
+  "sha256": "333a5d1e058dc4087c1fa5e1d49d72e76c99f5e3e8454c212c91c817f2eb83a1",
+  "notes": "v0.9.41 把电脑版 MGU控制台 0.5.5 的 M7F1 密钥算法移植进手机端（core/M7F1.kt，268 字节参数内嵌，抄自 flash.py 的 SecurityOperands，用同一个 seed 做过字节级对照，134 字节密钥包的 SHA-256 完全一致）。CAFD 写入可行性探测流程升级为 22 3006 → 10 03 → 27 01 → 27 02 → 10 01，新增 UNLOCK_OK 结论，仍然不发任何写服务。写原值实测补上 27 02：22 3015 读原值 → 10 03 → 27 01 → 27 02 → 2E 3015 + 原值 → 22 回读比对 → 10 01；只写 8 字节原值，内容零变化，不发 31 01 0F01 / 37FE / 11 01，不会触发编码校验例程也不会让主机重启。CodingRestore.apply 新增 unlock 参数（默认 true），进扩展会话后自动 27 01/02，解锁失败立刻停手，一个块都不写；0x3016 签名块仍硬拦。CodingBackup / CodingRestore 里「密钥在 SGBD / PSdZData，手机端拿不到」这类 0.9.34 时代的旧结论全部改成现状。整段恢复仍不建议当日常操作，原因是 0x3016 签名要重算、整段写回会让 HU 设置反复重置。签名仍为 59bdbe9d...，可直接覆盖 0.9.35 至 0.9.40。读码、清码、拓扑、DoIP、适配器、诊断报告、故障码中文零改动。",
+  "size": 20712509
 }
