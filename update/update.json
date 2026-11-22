@@ -1,9 +1,9 @@
 {
-  "version": "0.9.44",
-  "versionCode": 54,
-  "url": "https://aka.doubaocdn.com/s/WY0A2Z3nkn",
-  "mirror": "https://aka.doubaocdn.com/s/kVwTXePxc0",
-  "sha256": "ecddac0df14cc63725312ee9f8afc747f3532ede71ade9817c5259c9582a51e2",
-  "notes": "v0.9.44 新增顶部连接状态条（对齐电脑版控制台那排）：车辆 / 主机 / 网关 / 网络 / SSH 五格，每 8 秒自动刷、点一下立即重测，绿=通、橙=偏慢（>50ms）、红=不通、灰=未配。口径说明：车机不回应 ICMP（实测 ping 100% 丢包、22 端口是通的），所以「车辆」格的 ms 是 TCP 22 建链耗时而不是 ping。不改 IP 识别/主机探测逻辑，状态条只用已有地址（输入框或历史记录），不在刷新里连 DoIP 读地址以免阻塞和打断操作，onDestroy 停定时器。0.9.43 的小程序显示钩子与 CAF 恢复改动一并包含。签名仍为 59bdbe9d...，可覆盖 0.9.35 至 0.9.43。",
+  "version": "0.9.45",
+  "versionCode": 55,
+  "url": "https://aka.doubaocdn.com/s/cGZJsL32N5",
+  "mirror": "https://aka.doubaocdn.com/s/fRYbBfwxIb",
+  "sha256": "13093ddcc0864e7bc1fbca95ef1412dab3d91d554331ebf0e32edaac9ed1e1c5",
+  "notes": "v0.9.45 修二次刷写失败。两份实车日志（14:23 / 14:24）都是卡在 [11/174] 发完 11 01 后 3 秒 SocketException: Connection reset，后 163 帧全没发出去；与 SSH 开关无关，是 ECU 复位重启把 DoIP 的 TCP 掉了。改法：① 下一帧开始前若上一帧是 11 01，主动 close+connect 重连（DoIP 重做 RoutingActivation，最多 6 次）；发包也加断链自愈，撞上 Connection reset / Broken pipe / Socket closed 就重连再重发同一帧（最多 3 轮），协议层 7F NRC 判定不动。② 开刷前预检 22 80 00：回 62 80 00 正常直接刷，回 7F 22 31 说明车机还锁在 programming 模式（14:23 那次前 11 帧全 7F xx 31 就是这原因），自动跑 31 01 0F 0C 00 → 31 01 10 0F → 11 01 等 12 秒重连复查，仍锁则停手一条代码不写并提示手动退出编程模式；判定只认这一条 DID，不猜值。未实车验证。签名仍 59bdbe9d...，可覆盖 0.9.35 至 0.9.44。",
   "size": 20721466
 }
