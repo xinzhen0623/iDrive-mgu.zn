@@ -1,9 +1,9 @@
 {
-  "version": "0.9.54",
-  "versionCode": 64,
-  "url": "https://aka.doubaocdn.com/s/qM1cFSJmpZ",
-  "mirror": "https://aka.doubaocdn.com/s/8k2O6BVnkr",
-  "sha256": "64dff81e0dade4edde95263cdf741962ffc43069e44d4b233725c3eb1e4f9a6d",
-  "notes": "v0.9.54 CAFD 写回并成一步: 刷写开始自动判断本机有没有同 VIN 的可用编码备份, 有就直接用它(不重复抓, 省 20 多秒), 没有就静默抓一份当前编码(只读不写车)存进 cafd/, 刷完第 ⑨ 步自动写回, 用户只需点一次刷写, 不用再单独点备份。另修两个坑: ① 空壳备份(刷完抓的那份整块 FF)会被当回写源, 现在挑选规则是 同 VIN -> 排除一半以上块为 FF/空 -> verified 两遍一致优先 -> 同档时间戳最新; ② 车机在 bootloader 时跳过刷前快照(那时读不到编码块, 抓也是空), 回写交给已有历史备份。带 0.9.53 的预检修复(7F 22 31 不再死等 62 80 00, 30 秒后直接接着刷)。签名仍 59bdbe9d...。",
-  "size": 21151736
+  "version": "0.9.55",
+  "versionCode": 65,
+  "url": "https://aka.doubaocdn.com/s/GxNiBNHaCM",
+  "mirror": "https://aka.doubaocdn.com/s/6xsIvCTIVF",
+  "sha256": "fbc728fb807de7ddd3e20292378ac7756b8630567924de499de99d36ffd19cb8",
+  "notes": "v0.9.55 备份目录收干净。目录改成 cafd/<VIN>/<时间戳>/, 每份只留 backup.json(写回源) + coding_<VIN>_<时间戳>.json(电脑控制台格式), txt/csv/裸镜像/结构说明/RESTORE/SHA256SUMS/zip 全部不再生成; 每个 VIN 只留最近 3 份, 多的自动删; 旧版扁平文件夹自动归位到 cafd/<VIN>/<时间戳>/ (只搬家不删数据); 找备份改为递归, 新旧结构都认。分享改成一个 json。带 0.9.54 的刷写一条龙与 0.9.53 的预检修复。签名仍 59bdbe9d...。",
+  "size": 20734616
 }
