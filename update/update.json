@@ -1,9 +1,9 @@
 {
-  "version": "0.9.51",
-  "versionCode": 61,
-  "url": "https://aka.doubaocdn.com/s/yVOVrGNyA8",
-  "mirror": "https://aka.doubaocdn.com/s/qTmFVkjy1t",
-  "sha256": "685e436310ffc26c240bd93bb7456e1cdcab6b3784f4d375fdbfb21db0df94a7",
-  "notes": "v0.9.51 把 cafd 刷写开启: 刷写收尾自动写回 CAFD。序列最后一帧 11 01 会把 coding 清成 CAFD FFFFFFFF 255.255.255, 电脑版刷完也是这状态; 以前只提示自己对照恢复, 现在第 ⑨ 步自动补: 只认同 VIN 的备份(本机 cafd/ 的 backup.json 与电脑控制台导出的 coding_*.json 都认, 绝不跨车写); 先 22 80 00 轮询确认回到应用模式(最多 30 秒)再 precheck; preview 逐块读当前值, 只写确实不一样的块, 签名块 0x3016 跳过; 10 03 -> 27 01/02(M7F1) -> N 块 2E -> 31 01 0F01 -> 37FE 短 VIN, 写完逐块回读比对; 不主动发 11 01, 重新点火后整车编码生效; 任何一步不对就停手并写清原因。没有本车备份就跳过并提示, 不会瞎写。刷写确认框文案同步改。另带 0.9.50 的 pending/地址一致性四处修复(未实车验证)。签名仍 59bdbe9d...。",
-  "size": 20732377
+  "version": "0.9.52",
+  "versionCode": 62,
+  "url": "https://aka.doubaocdn.com/s/QS2yn6l7Bj",
+  "mirror": "https://aka.doubaocdn.com/s/cEE0FT71TR",
+  "sha256": "1cdf9398597dbcd8dbcfd46c5155be840e560d9379391ee864ec583c1937c3ec",
+  "notes": "v0.9.52 修 18:19 刷写失败: 日志尾 FlashError: M7F1 key 超出 128 字节字段。Java BigInteger.toByteArray() 最高位为 1 时多补前导 0x00, 128 变 129, 旧代码 if (raw.size > 128) throw 于是第 67 帧 27 11 (seed 91 B0 B4 12 98 29 49 AA) 直接抛错终结; 第 20 帧 seed 最高位 0 正好 128, 所以第一次解锁成功, 这就是刷到 60 多帧才炸的原因。修法: 只取末 128 字节, 不够补零。另修复位等待: 复位后 MGU 在 bootloader, 22 80 00 只回 7F 22 31 永不回 62 80 00, 旧逻辑硬等 45 秒×3 白烧 135 秒; 现在两种应答都算在线上, 7F 22 78 继续等, 上限 15 秒。复位点(11/39/51/174 帧)是镜像自带。0.9.51 自动写回 CAFD 一并带着。签名仍 59bdbe9d...。",
+  "size": 20732607
 }
