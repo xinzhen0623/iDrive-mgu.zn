@@ -1,9 +1,9 @@
 {
-  "version": "0.9.52",
-  "versionCode": 62,
-  "url": "https://aka.doubaocdn.com/s/QS2yn6l7Bj",
-  "mirror": "https://aka.doubaocdn.com/s/cEE0FT71TR",
-  "sha256": "1cdf9398597dbcd8dbcfd46c5155be840e560d9379391ee864ec583c1937c3ec",
-  "notes": "v0.9.52 修 18:19 刷写失败: 日志尾 FlashError: M7F1 key 超出 128 字节字段。Java BigInteger.toByteArray() 最高位为 1 时多补前导 0x00, 128 变 129, 旧代码 if (raw.size > 128) throw 于是第 67 帧 27 11 (seed 91 B0 B4 12 98 29 49 AA) 直接抛错终结; 第 20 帧 seed 最高位 0 正好 128, 所以第一次解锁成功, 这就是刷到 60 多帧才炸的原因。修法: 只取末 128 字节, 不够补零。另修复位等待: 复位后 MGU 在 bootloader, 22 80 00 只回 7F 22 31 永不回 62 80 00, 旧逻辑硬等 45 秒×3 白烧 135 秒; 现在两种应答都算在线上, 7F 22 78 继续等, 上限 15 秒。复位点(11/39/51/174 帧)是镜像自带。0.9.51 自动写回 CAFD 一并带着。签名仍 59bdbe9d...。",
-  "size": 20732607
+  "version": "0.9.53",
+  "versionCode": 63,
+  "url": "https://aka.doubaocdn.com/s/OLvIhDZYZH",
+  "mirror": "https://aka.doubaocdn.com/s/lULii58HF3",
+  "sha256": "d576cec58824b9c1981107e9bd0f28731a2900e03b29f6a1954ebc6426180700",
+  "notes": "v0.9.53 修 18:27 连第一步都进不去: 上趟刷写死在 67 帧, 镜像半写, MGU 停在 bootloader, 此时 22 80 00 只回 7F 22 31 永不回 62 80 00; 旧预检写死为发现 7F 22 31 就退出编程再死等 62 最长 90 秒, 条件不可能成立必然卡死。现改: 退出编程序列照旧发, 最多轮询 30 秒; 见到 62 正常刷; 一直 7F 22 31(ECU 一直在答) 则判定在 bootloader 直接接着刷(第 1 帧 31 03 A0 FD 起就是编程流程); 30 秒全无应答才停手。半写镜像只能再刷一遍覆盖。带 0.9.52 的 M7F1 key 宽度修 + 0.9.51 自动写回 CAFD。签名仍 59bdbe9d...。",
+  "size": 20733438
 }
