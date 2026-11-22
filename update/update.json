@@ -1,9 +1,9 @@
 {
-  "version": "0.9.53",
-  "versionCode": 63,
-  "url": "https://aka.doubaocdn.com/s/OLvIhDZYZH",
-  "mirror": "https://aka.doubaocdn.com/s/lULii58HF3",
-  "sha256": "d576cec58824b9c1981107e9bd0f28731a2900e03b29f6a1954ebc6426180700",
-  "notes": "v0.9.53 修 18:27 连第一步都进不去: 上趟刷写死在 67 帧, 镜像半写, MGU 停在 bootloader, 此时 22 80 00 只回 7F 22 31 永不回 62 80 00; 旧预检写死为发现 7F 22 31 就退出编程再死等 62 最长 90 秒, 条件不可能成立必然卡死。现改: 退出编程序列照旧发, 最多轮询 30 秒; 见到 62 正常刷; 一直 7F 22 31(ECU 一直在答) 则判定在 bootloader 直接接着刷(第 1 帧 31 03 A0 FD 起就是编程流程); 30 秒全无应答才停手。半写镜像只能再刷一遍覆盖。带 0.9.52 的 M7F1 key 宽度修 + 0.9.51 自动写回 CAFD。签名仍 59bdbe9d...。",
-  "size": 20733438
+  "version": "0.9.54",
+  "versionCode": 64,
+  "url": "https://aka.doubaocdn.com/s/qM1cFSJmpZ",
+  "mirror": "https://aka.doubaocdn.com/s/8k2O6BVnkr",
+  "sha256": "64dff81e0dade4edde95263cdf741962ffc43069e44d4b233725c3eb1e4f9a6d",
+  "notes": "v0.9.54 CAFD 写回并成一步: 刷写开始自动判断本机有无同 VIN 可用编码备份, 有就用(不重复抓), 没有就静默抓一份当前编码(只读)存 cafd/, 刷完第 ⑨ 步自动写回, 只需点一次刷写。修: ① 空壳备份(整块 FF)不再当回写源, 规则=同 VIN -> 排除一半以上为 FF -> verified 优先 -> 时间戳最新; ② bootloader 时跳过刷前快照。带 0.9.53 预检修复。签名仍 59bdbe9d...。",
+  "size": 21151736
 }
