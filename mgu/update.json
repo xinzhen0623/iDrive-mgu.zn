@@ -1,9 +1,9 @@
 {
   "version": "0.9.62",
   "versionCode": 72,
-  "url": "https://aka.doubaocdn.com/s/isXb7i5lIO",
-  "mirror": "https://aka.doubaocdn.com/s/Ux3DZMZcVg",
-  "sha256": "4aa11c0da728feafa11f169e7629347f63a58a8f1cccfc35ce4b171a94f2ce69",
-  "notes": "v0.9.62 修「检查不到新版本」: 1) 补上 0.9.61 漏推的清单; 2) 镜像顺序改成按可信度排, gh-proxy/ghfast 实时回源在前, jsDelivr 的 @main (实测滞后到 0.9.35/vc45) 挪到最后兜底; 3) 新增 stale 识别: 清单 versionCode 比本机小就在日志与弹窗里明说缓存滞后, 不再静默报已是最新; 4) 检查结果弹窗直接显示清单版本号。",
-  "size": 20746075
+  "url": "https://aka.doubaocdn.com/s/aM2KkdrPI5",
+  "mirror": "https://aka.doubaocdn.com/s/7fuuxD9rgV",
+  "sha256": "962cb4c89ba61463d1e98b63df940666d8516d00831222af847658d6ad0897fa",
+  "notes": "v0.9.62 修「检查不到新版本」: 1) 补上 0.9.61 漏推的清单; 2) 镜像链改成实测可用的顺序: raw 主通道 -> ghfast.top 实时回源 -> jsDelivr 兜底(实测滞后到 0.9.35/vc45); gh-proxy.com 实测 403 已移除; 3) 新增 stale 识别: 清单 versionCode 比本机小就在日志与弹窗里明说缓存滞后, 不再静默报已是最新; 4) 检查结果弹窗直接显示清单版本号。",
+  "size": 21174513
 }
