@@ -1,9 +1,9 @@
 {
-  "version": "0.9.41",
-  "versionCode": 51,
-  "url": "https://aka.doubaocdn.com/s/ryLlEoZiPh",
-  "mirror": "https://aka.doubaocdn.com/s/xeumHemWap",
-  "sha256": "333a5d1e058dc4087c1fa5e1d49d72e76c99f5e3e8454c212c91c817f2eb83a1",
-  "notes": "v0.9.41 把电脑版 MGU控制台 0.5.5 的 M7F1 密钥算法移植进手机端（core/M7F1.kt，268 字节参数内嵌，抄自 flash.py 的 SecurityOperands，用同一个 seed 做过字节级对照，134 字节密钥包的 SHA-256 完全一致）。CAFD 写入可行性探测流程升级为 22 3006 → 10 03 → 27 01 → 27 02 → 10 01，新增 UNLOCK_OK 结论，仍然不发任何写服务。写原值实测补上 27 02：22 3015 读原值 → 10 03 → 27 01 → 27 02 → 2E 3015 + 原值 → 22 回读比对 → 10 01；只写 8 字节原值，内容零变化，不发 31 01 0F01 / 37FE / 11 01，不会触发编码校验例程也不会让主机重启。CodingRestore.apply 新增 unlock 参数（默认 true），进扩展会话后自动 27 01/02，解锁失败立刻停手，一个块都不写；0x3016 签名块仍硬拦。CodingBackup / CodingRestore 里「密钥在 SGBD / PSdZData，手机端拿不到」这类 0.9.34 时代的旧结论全部改成现状。整段恢复仍不建议当日常操作，原因是 0x3016 签名要重算、整段写回会让 HU 设置反复重置。签名仍为 59bdbe9d...，可直接覆盖 0.9.35 至 0.9.40。读码、清码、拓扑、DoIP、适配器、诊断报告、故障码中文零改动。",
-  "size": 20712509
+  "version": "0.9.42",
+  "versionCode": 52,
+  "url": "https://aka.doubaocdn.com/s/bipVCgZu1E",
+  "mirror": "https://aka.doubaocdn.com/s/OrDxj5Vnox",
+  "sha256": "30bc38b9d29d715b274eba4fd8b195e0d07f8ad7615e3e7b225b60d1eec11241",
+  "notes": "v0.9.42 修掉小程序「装成功但车机不显示」：车机 MainApp 只显示 BMW 签名 provisioning 数据里的 app，自定义 app 必须开 provisioning hook（把打补丁的 main.js bind-mount 上去）才会出现，而 0.9.41 及更早只跑 install、从没跑过 patch。现在装完自动查钩子状态、未启用则跑 patch --persist（写 systemd drop-in，重启仍保留），再复查钩子是否生效，并回读 custom_apps.json 确认 app id 真登记上了，不再只看退出码。硬前提：patch 需要安装器同目录的 mainapp-patch.js；车上有完整 mgu-deploy kit 时自动用它，只有单文件安装器时日志会明确写「开不了」，不硬试。CAF 恢复按电脑版 0.5.5 实车日志改成同款流程：0x3016 签名块从「中断全部」改为「跳过不写、继续」，补 31 01 0F01 编码校验与 37FE 短 VIN，11 01 复位做成可选（默认不发）。VIN 与 CAFD 版本门禁、逐块回读、失败即停全部保留。签名仍为 59bdbe9d...，可直接覆盖 0.9.35 至 0.9.41。",
+  "size": 20715769
 }
