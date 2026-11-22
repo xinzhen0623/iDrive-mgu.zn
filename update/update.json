@@ -1,9 +1,9 @@
 {
-  "version": "0.9.55",
-  "versionCode": 65,
-  "url": "https://aka.doubaocdn.com/s/GxNiBNHaCM",
-  "mirror": "https://aka.doubaocdn.com/s/6xsIvCTIVF",
-  "sha256": "fbc728fb807de7ddd3e20292378ac7756b8630567924de499de99d36ffd19cb8",
-  "notes": "v0.9.55 备份目录收干净: cafd/<VIN>/<时间戳>/, 每份只留 backup.json + coding_*.json, 其它文件全不生成; 每 VIN 最3份, 旧版扁平文件夹自动归位, 找备份改递归。带 0.9.54 一条龙与 0.9.53 预检修复。签名仍 59bdbe9d...。",
-  "size": 20734616
+  "version": "0.9.56",
+  "versionCode": 66,
+  "url": "https://aka.doubaocdn.com/s/6EyWIx6OTC",
+  "mirror": "https://aka.doubaocdn.com/s/BQpZ2n8SL4",
+  "sha256": "dbb9cb86fff1b799cb723022fa8f2c6b994b815130ef7e556c26134acae512ac",
+  "notes": "v0.9.56 去掉刷完自动写回 CAFD (27 01 回 7F 27 7F, 刷完 6 秒 ECU 安全访问未放开); 恢复改一步式; 解锁加 3 轮会话复位重试; 小程序安装超时 180s->300s。",
+  "size": 20734467
 }
