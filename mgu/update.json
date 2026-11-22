@@ -1,9 +1,9 @@
 {
-  "version": "0.9.50",
-  "versionCode": 60,
-  "url": "https://aka.doubaocdn.com/s/UlquKt3pj5",
-  "mirror": "https://aka.doubaocdn.com/s/iX6FY26Vlw",
-  "sha256": "d2bce3c5657a1b465537a24a34f4f7924d8e4d82a012faf978d98bf3bddcf262",
-  "notes": "v0.9.50 修「找不到主机」。对照: 电脑版在同台车(WBACR2100LLW97506, 网关 .242, 主机 .112) 17:45:24 刷完 174/174 全绿, 链路没问题, 手机端是三个判断错。① Uds.match 跳过 7F xx 78: 0x78 是 requestCorrectlyReceived-ResponsePending(还在算), 不是拒绝; 取应答时取到最后一条中间帧, 于是 17:41:41 把 22 17 2A 报成「NRC 0x78」、界面显示「车机 IP 还没读到」。读 SVK / 读车机 IP / 开 SSH 判定共用这个函数, 一处修好全好。② 预检探针同样跳过 pending, 只认最终应答(原本 17:42:12 把 7F 22 78 当结论显示, 判定碰巧还对因为真码 7F 22 31 也在)。③ 编程模式恢复窗口 60 秒改 90 秒: 日志 11 01 复位在 17:42:12, AGADR10BMWVIN 重启标志 17:42:42 才出现, 之后一直无应答, MGU 真正回线上要到 17:43:30 之后, 电脑版 17:44 才开刷。④ 新增 detectedGw: 探测验证通过的网关直接传给后续车辆信息刷新, 不再从输入框回读 —— 17:41:44 那次「failed to connect to 192.168.171.239」就是探测已命中 242 但建程读到上一台车的旧地址。未动 IP 识别与主机探测算法本身, 只改拿到结果之后怎么用。签名仍 59bdbe9d...。",
-  "size": 20728129
+  "version": "0.9.51",
+  "versionCode": 61,
+  "url": "https://aka.doubaocdn.com/s/yVOVrGNyA8",
+  "mirror": "https://aka.doubaocdn.com/s/qTmFVkjy1t",
+  "sha256": "685e436310ffc26c240bd93bb7456e1cdcab6b3784f4d375fdbfb21db0df94a7",
+  "notes": "v0.9.51 把 cafd 刷写开启: 刷写收尾自动写回 CAFD。序列最后一帧 11 01 会把 coding 清成 CAFD FFFFFFFF 255.255.255(电脑版刷完也是这个状态), 以前只提示自己对照恢复, 现在走第 ⑨ 步自动补: (1) 只认同 VIN 的备份, 本机 cafd/ 下 backup.json 与电脑控制台导出的 coding_*.json 都认, 绝不跨车写; (2) 先 22 80 00 轮询确认车机回到应用模式(最多 30 秒), 再 precheck; (3) preview 逐块读当前值, 只写确实不一样的块, 签名块 0x3016 跳过; (4) 10 03 -> 27 01/02(M7F1) -> N 块 2E -> 31 01 0F01 -> 37FE 短 VIN, 写完逐块回读比对; (5) 不主动发 11 01, 重新点火后整车编码生效; (6) 任何一步不对就停手并写清原因, 不改半截。没有本车备份就跳过并在日志里提示, 不会瞎写。刷写确认框文案同步改成 刷完自动写回本车最近一次备份。另带 0.9.50 四处 pending/地址一致性修复(未实车验证)。签名仍 59bdbe9d...。",
+  "size": 20732377
 }
