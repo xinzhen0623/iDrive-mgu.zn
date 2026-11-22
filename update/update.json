@@ -1,9 +1,9 @@
 {
-  "version": "0.9.58",
-  "versionCode": 68,
-  "url": "https://aka.doubaocdn.com/s/VPiMR2ivsR",
-  "mirror": "https://aka.doubaocdn.com/s/C6Y5IxlXlY",
-  "sha256": "a06f3c953def392f900fa4d98e0290dfeb4de36b6e912490bb53592fe0f1c3ec",
-  "notes": "v0.9.58 CAFD 7 控件->3 个; 修 mainapp-patch.js ancchr bug。",
-  "size": 20734712
+  "version": "0.9.59",
+  "versionCode": 69,
+  "url": "https://aka.doubaocdn.com/s/av3JEPDlfS",
+  "mirror": "https://aka.doubaocdn.com/s/9BAvOV1Qf8",
+  "sha256": "7d0baa8afcd183d651ce3a7498c39cd6602db6f7c858f7e7f9860ea28a9af876",
+  "notes": "v0.9.59 修 CarPlay 一键装 inactive 误判为 active 的 bug。",
+  "size": 20735078
 }
