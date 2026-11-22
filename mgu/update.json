@@ -1,9 +1,9 @@
 {
-  "version": "0.9.59",
-  "versionCode": 69,
-  "url": "https://aka.doubaocdn.com/s/av3JEPDlfS",
-  "mirror": "https://aka.doubaocdn.com/s/9BAvOV1Qf8",
-  "sha256": "7d0baa8afcd183d651ce3a7498c39cd6602db6f7c858f7e7f9860ea28a9af876",
-  "notes": "v0.9.59 修 CarPlay 一键装的子串 bug: clusterState.contains(active) 把 inactive 当成在跑, 导致没装却报已在跑跳过; 改为精确比 active 且先查 mgu-deploy/cluster-render/client。多点触控不匹配时明确说明是 carplay 版本不匹配(2890992B vs 3484912B), 不再让人反复点。末尾加下一步指引。",
-  "size": 20735078
+  "version": "0.9.60",
+  "versionCode": 70,
+  "url": "https://aka.doubaocdn.com/s/oEYa4NBGee",
+  "mirror": "https://aka.doubaocdn.com/s/sn4Vgvf3H4",
+  "sha256": "7bafc89d5667ca6ebe11bce6e9976ddb16543e62b5e425c0b36833802c0b702a",
+  "notes": "v0.9.60 CarPlay 部分按上游 GitHub 源码整体重写: 1) 探测新增 MGU 版本串(从 carplay 二进制抠 P1x_..w.. 串), 直接显示本车版本与上游实测版本 P18_23w44.2-1-3; 2) 多点触控 status 按上游达标口径判(activePatched + health.verified + pending=null 三项同时成立), 不再只倒 JSON; 3) 投屏装完自动 clusterVerify(systemctl is-active + mgu-deploy status 复核); 4) 新增长按导入 cluster_render_client.js(存 App 私有目录, 装投屏时一并传车机) 与查多点触控状态入口, 不新增按钮。硬结论: 多点触控只支持 3484912B/ddb33e33 那一版, 本车 2890992B 装不了。",
+  "size": 20739405
 }
