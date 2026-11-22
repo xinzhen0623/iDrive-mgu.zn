@@ -1,9 +1,9 @@
 {
-  "version": "0.9.57",
-  "versionCode": 67,
-  "url": "https://aka.doubaocdn.com/s/ztkj5CUj1t",
-  "mirror": "https://aka.doubaocdn.com/s/aPqL2VKwQJ",
-  "sha256": "383ed961897ee95e2857fbf2951b960a66cf4e6d9316826539c44f990e45db50",
-  "notes": "v0.9.57 CarPlay 5 按钮 -> 2 个一键装/卸。",
-  "size": 20733676
+  "version": "0.9.58",
+  "versionCode": 68,
+  "url": "https://aka.doubaocdn.com/s/VPiMR2ivsR",
+  "mirror": "https://aka.doubaocdn.com/s/C6Y5IxlXlY",
+  "sha256": "a06f3c953def392f900fa4d98e0290dfeb4de36b6e912490bb53592fe0f1c3ec",
+  "notes": "v0.9.58 CAFD 7 控件->3 个; 修 mainapp-patch.js ancchr bug。",
+  "size": 20734712
 }
