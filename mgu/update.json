@@ -1,9 +1,9 @@
 {
-  "version": "0.9.39",
-  "versionCode": 49,
-  "url": "https://aka.doubaocdn.com/s/nMgunbJPli",
-  "mirror": "https://aka.doubaocdn.com/s/idV8zHyKY1",
-  "sha256": "faa28cfe77a0342cbe01daee76a03e8393cfa9b5152b710d6039a92f4ab803da",
-  "notes": "v0.9.39 是拿用户实车 34 条故障码 CSV + ISTA 4.57.21 官方 14 条中文对照做的。新增「按码精确表」机制：查到码直接吐官方中文，不走术语替换。已收 13 条（026003 KOMBI 外部 SWT 检测条件未满足 / 026004 内部 SWT 检测失败 / 138206 散热器百叶窗下部在温暖的环境温度下卡住 / 21B04C 散热器百叶窗上部霍尔传感器功能异常 / 801229 IHKA 操作区安装了错误的系列 / 803185 PDC 无法激活 / 803192 前部左侧驻车助手超声波传感器数据导线断路 / 8031E2 前部右侧 / 80439A AUC 传感器短路断路或有错误的按脉冲宽度调制的信号 / 8044D6 车内灯 LIN 总线 1 上的光源自动地址分配错误 / D90C1C LIN 主控单元 K_LIN_6 无通信 / D90C1F FL_LIN / D90D3E 前乘客座椅加热模块 LIN 缺少 LIN 组件或无法通信）。同时补掉 CSV 里的漏词：radiator blind、centre speaker、tweeter、microphone、calibrated、automatic air recirculation、pulse-width modulated、light sources、autoaddressing、instrument panel、condition not fulfilled、head unit、restricted function 等，词表 1327 -> 1391 条。结果：该 CSV 里 24 条本地库有英文原文的全部变中文，残留只有 AUC/LIN/KOMBI/SWT/TCB/KAFAS/IHKA/Apple CarPlay/JBE 等代号与 0xXXX 报文号；另 10 条本地库确实没有，兜底文案改为「本地 DTC 库无此码 · 可复制到 ISTA 输入 SAE 故障码查」。全库口径：完全无英文 19.7%，只留缩写 64.1%，按出现次数加权 66.9%。62F150 在 12 个单元同时报但库里和 ISTA 列表都没有，未猜测其含义。签名仍为 59bdbe9d...，可直接覆盖 0.9.35-0.9.38。读码清码拓扑 DoIP 适配器 CAFD 逻辑零改动。",
-  "size": 20693260
+  "version": "0.9.40",
+  "versionCode": 50,
+  "url": "https://aka.doubaocdn.com/s/Ok6qUVWYNF",
+  "mirror": "https://aka.doubaocdn.com/s/153LTk8AFA",
+  "sha256": "5cccceb5193abb0afa9cd9128b038e732fb55ee777596c8b3582fa8055fdacd3",
+  "notes": "v0.9.40 照用户提供的 ISTA 4.57.21「过程记录 Operations report」PDF 重构诊断报告。故障码页新增「诊断报告（预览 / 导出）」：点开先全屏预览（WebView 渲染，预览与导出是同一份 HTML，所见即所得），底部可导出 HTML / CSV。三块版式对齐 ISTA：诊断过程（车架号 VIN / 车型 SVK / 集成等级 I-Step / 适配器 / 诊断网关 / 扫描开始 / 持续时间 / 应答单元 / 故障码条数）、车辆测试全部（每控制单元一行：地址 / 名称 / SGBD 型号 / 结果 io 或 nio / 故障条数）、故障清单（每故障一行：地址 / 控制单元 / 设码编号 / 说明 / 目前是否存在 / 状态字节）。CSV 列同步改成 ISTA 故障清单口径，并在前四行加车辆信息头。导出后弹窗可关闭 / 分享 / 直接用系统浏览器打开。里程、故障分组、BNTN 这几列 App 没有真实数据，不做占位也不填 0，直接不出现在表里，只写一行「里程 — 本 App 未读取，需要里程请看 ISTA」。SGBD 与型号取 22 F1 50 真实回读值，读不到显示「—」不用同地址其它型号顶替。报告的脚注写明三态口径、中文来源、保留英文的范围、非 BMW 官方文件。另附一份用实车 34 条数据生成的样例 HTML 供预览版式。签名仍为 59bdbe9d...，可直接覆盖 0.9.35-0.9.39。读码清码拓扑 DoIP 适配器 CAFD 涻3写原值实测与翻译逻辑零改动。",
+  "size": 20707670
 }
