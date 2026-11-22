@@ -1,9 +1,9 @@
 {
-  "version": "0.9.35",
-  "versionCode": 45,
-  "url": "https://aka.doubaocdn.com/s/KJ2xCkSl8j",
-  "mirror": "https://aka.doubaocdn.com/s/RnKODf3MzO",
-  "sha256": "e643812972becf36ef38252520b1a2db1e14215dd1740493c2aa3764a6a2412f",
-  "notes": "v0.9.35 两件事。① 签名固定：工程内自带 keystore/mgu.jks，debug 与 release 共用，任何机器编出来的包签名一致（证书 SHA-256 59bdbe9d...72cc）。注意本版与之前所有版本签名均不同，安装前必须先卸载旧版，装完重填网关 IP / 端口；从本版起以后都能直接覆盖。② 新增「写入可行性探测」：只发 22 3006 基线、10 03 扩展会话、27 01 取种子、最后 10 01 回默认会话，绝不发 27 02（密钥猜错会触发 NRC 0x36 锁），也绝不发 2E 或任何写服务，物理上不可能改车。结果分四种：10 03 被拒 = 这条路封死；10 03 通但 27 01 被拒 = 卡在 SecurityAccess（密钥算法在 SGBD）；27 01 给了种子 = 唯一还有余地，差的只是 seed→key 算法；基线读不到 = 先修通信。每次生成 Coding写入探测-时间.txt 可分享。③ CAFD 提取与对照表导出沿用 0.9.34 未改。④ 未实车回归。",
-  "size": 20648570
+  "version": "0.9.36",
+  "versionCode": 46,
+  "url": "https://aka.doubaocdn.com/s/oRL9RN1GBl",
+  "mirror": "https://aka.doubaocdn.com/s/kHo3llJUsa",
+  "sha256": "d265f5c963c45cfeb55fcf8753a5b94c477eb8c9bd1bebf8a7b89a4be830df36",
+  "notes": "v0.9.36 拿电脑 MGU 控制台的四份 mgu-ncd-v1 备份把块结构实证核了一遍，并纠错：CAFD 标识块是 0x3015 不是 0x3006。0x3015 格式为 05 + CAFD 号(4B) + 版本(3B)，实测 05 00003E52 08 0A 78 = CAFD 00003E52 / 8.10.120，与控制台 json 的 cafd 字段一致；0x3006 只是普通编码块（块首 7F 40 03 41），上一版按 NBT 口径当 CAF_ID 是错的。改动：① blockSemantics 重标 0x3000-0x3013=CB、0x3014=5 字节短块（含义未核实）、0x3015=CAFD 标识块、0x3016=NCD 签名块（132 字节，开头 00000020）；② 编码版本改从 0x3015 解（cafdTagOf 同时拿 CAFD 号），恢复前的版本门禁也改读 0x3015；③ 新增导出 coding_<VIN>_<时间>.json，与控制台 mgu-ncd-v1 完全同构（shortVin 为 VIN 末 7 位 ASCII hex），手机备份可直接给电脑控制台用；④ App 也能读这种 json（放 cafd 目录根下即在恢复预览的备份列表出现）。签名仍为固定的 59bdbe9d...，装过 0.9.35 的可直接覆盖。未实车回归。",
+  "size": 20653578
 }
