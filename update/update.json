@@ -1,9 +1,9 @@
 {
-  "version": "0.9.60",
-  "versionCode": 70,
-  "url": "https://aka.doubaocdn.com/s/oEYa4NBGee",
-  "mirror": "https://aka.doubaocdn.com/s/sn4Vgvf3H4",
-  "sha256": "7bafc89d5667ca6ebe11bce6e9976ddb16543e62b5e425c0b36833802c0b702a",
-  "notes": "v0.9.60 CarPlay 按上游源码重写: MGU 版本识别 + status 三条件判定 + 投屏装完复核 + 长按导入 client js。",
-  "size": 20739405
+  "version": "0.9.61",
+  "versionCode": 71,
+  "url": "https://aka.doubaocdn.com/s/ZQU9kt6gjN",
+  "mirror": "https://aka.doubaocdn.com/s/UndH8fIuKW",
+  "sha256": "b1699d14e02871be5e82fb8088c9fee8f5f25e6d7c41fe8895ca61c4237c970f",
+  "notes": "v0.9.61 CAFD 写回重写: 签名块 0x3016 不再跳过、改为最后写, 10 41 codingSession, 31 01 0F01 真门禁, 11 01 复位后重连逐块核对。根因: 20 块只写 19 块导致编码不持久。",
+  "size": 21173327
 }
