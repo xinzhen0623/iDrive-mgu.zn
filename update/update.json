@@ -1,9 +1,9 @@
 {
-  "version": "0.9.45",
-  "versionCode": 55,
-  "url": "https://aka.doubaocdn.com/s/cGZJsL32N5",
-  "mirror": "https://aka.doubaocdn.com/s/fRYbBfwxIb",
-  "sha256": "13093ddcc0864e7bc1fbca95ef1412dab3d91d554331ebf0e32edaac9ed1e1c5",
-  "notes": "v0.9.45 修二次刷写失败。两份实车日志（14:23 / 14:24）都是卡在 [11/174] 发完 11 01 后 3 秒 SocketException: Connection reset，后 163 帧全没发出去；与 SSH 开关无关，是 ECU 复位重启把 DoIP 的 TCP 掉了。改法：① 下一帧开始前若上一帧是 11 01，主动 close+connect 重连（DoIP 重做 RoutingActivation，最多 6 次）；发包也加断链自愈，撞上 Connection reset / Broken pipe / Socket closed 就重连再重发同一帧（最多 3 轮），协议层 7F NRC 判定不动。② 开刷前预检 22 80 00：回 62 80 00 正常直接刷，回 7F 22 31 说明车机还锁在 programming 模式（14:23 那次前 11 帧全 7F xx 31 就是这原因），自动跑 31 01 0F 0C 00 → 31 01 10 0F → 11 01 等 12 秒重连复查，仍锁则停手一条代码不写并提示手动退出编程模式；判定只认这一条 DID，不猜值。未实车验证。签名仍 59bdbe9d...，可覆盖 0.9.35 至 0.9.44。",
-  "size": 20721466
+  "version": "0.9.46",
+  "versionCode": 56,
+  "url": "https://aka.doubaocdn.com/s/IbhGxM5hUB",
+  "mirror": "https://aka.doubaocdn.com/s/CeXA2iZ3Rq",
+  "sha256": "9f5fb2deb5d31b3bdac4ac1c14a49245f368f21da32cf8e606344015b4612e80",
+  "notes": "v0.9.46 真正的主 bug：pending 应答认不出来。awaitOne 判 7F xx 78 时写成 p[1].toInt() == (request[0].toInt() and 0xFF)，左边没 and 0xFF —— Byte 0x85 转 Int 是 -123，右边是 133，永远不等。凡服务号 >0x7F 的请求（85 02 关故障码记录最常撞）它的 pending 被当最终应答提前返回，真正的 C5 02 滞留缓冲区、被算到下一帧头上，整条链往后错位一帧（实车日志 14:37:09 那串 85/28/31 全告警就是）。全部字节比较加 and 0xFF，%02X 负数显示（0xFFFFFF85）一并修。② 预检等 12 秒不够：MGU 复位到能应答 22 80 00 实测要 20 秒上下，改成每 3 秒查一次最长 60 秒，看到 62 80 00 就走。③ 36 回 0x72（一般编程失败）说明这块没写进去、后面必然全 0x24，直接停不再硬刷 10 帧；36 重发回 7F 36 73 视为重复块算成功。④ 复位后帧改 4 秒密集探（原 15 秒白等一轮）。0.9.45 已把刷写从第 11 帧推进到第 91 帧。签名仍 59bdbe9d...。",
+  "size": 20725253
 }
