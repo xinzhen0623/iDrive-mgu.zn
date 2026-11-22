@@ -1,9 +1,9 @@
 {
-  "version": "0.9.43",
-  "versionCode": 53,
-  "url": "https://aka.doubaocdn.com/s/S48iGpSVtt",
-  "mirror": "https://aka.doubaocdn.com/s/V2wXe8hy1O",
-  "sha256": "8955be6a7497f9970151c14fa2bd45aa7cccd02da58bdc8d5d47d0e0fadf0aee",
-  "notes": "v0.9.43 实车查明小程序不显示的根因：车机 /proc/mounts 里没有 oap-mainapp/src/main.js，即 provisioning hook 从未启用；custom_apps.json 里 dtc_scanner / warmup 两条都在，app 是真的装上了，只是 MainApp 只显示 BMW 签名 provisioning 数据里的 app，自定义 app 被 enabled=false 藏掉。修法：把 mainapp-patch.js（2456 B，电脑版工具箱原版）打进 APK，装包前确认安装器同目录有没有它、缺则上传，install 成功后查钩子状态、未启用则跑 patch --persist（写 systemd drop-in，重启仍保留），再复查挂载并回读 custom_apps.json 确认 app id 登记。已在本车实车试跑补丁（写入 /tmp 不动系统）：main.js 1928420 B md5 0888c903，node v8.16.2，patched EXIT=0，node --check 语法通过，新文件 +535 B 且含 mgu-custom-apps 标记，anchor 匹配、能打进。CAF 恢复对齐电脑版 0.5.5 日志：0x3016 签名块从「中断」改为「跳过继续」，补 31 01 0F01 编码校验与 37FE 短 VIN，11 01 复位可选默认不发。签名仍为 59bdbe9d...，可覆盖 0.9.35 至 0.9.42。",
-  "size": 20717696
+  "version": "0.9.44",
+  "versionCode": 54,
+  "url": "https://aka.doubaocdn.com/s/WY0A2Z3nkn",
+  "mirror": "https://aka.doubaocdn.com/s/kVwTXePxc0",
+  "sha256": "ecddac0df14cc63725312ee9f8afc747f3532ede71ade9817c5259c9582a51e2",
+  "notes": "v0.9.44 新增顶部连接状态条（对齐电脑版控制台那排）：车辆 / 主机 / 网关 / 网络 / SSH 五格，每 8 秒自动刷、点一下立即重测，绿=通、橙=偏慢（>50ms）、红=不通、灰=未配。口径说明：车机不回应 ICMP（实测 ping 100% 丢包、22 端口是通的），所以「车辆」格的 ms 是 TCP 22 建链耗时而不是 ping。不改 IP 识别/主机探测逻辑，状态条只用已有地址（输入框或历史记录），不在刷新里连 DoIP 读地址以免阻塞和打断操作，onDestroy 停定时器。0.9.43 的小程序显示钩子与 CAF 恢复改动一并包含。签名仍为 59bdbe9d...，可覆盖 0.9.35 至 0.9.43。",
+  "size": 20721466
 }
