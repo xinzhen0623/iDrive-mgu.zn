@@ -1,9 +1,9 @@
 {
-  "version": "0.9.61",
-  "versionCode": 71,
-  "url": "https://aka.doubaocdn.com/s/ZQU9kt6gjN",
-  "mirror": "https://aka.doubaocdn.com/s/UndH8fIuKW",
-  "sha256": "b1699d14e02871be5e82fb8088c9fee8f5f25e6d7c41fe8895ca61c4237c970f",
-  "notes": "v0.9.61 CAFD 写回按上游写流程(nbt-evo-toolkit 03-write-flow)整段重写: 1) 补上 10 41 codingSession(不支持则警告后继续); 2) 0x3016 签名块不再跳过, 改为最后写(写前验形状 132 字节 + 头 00000020), 恢复场景用备份原签名天然自洽、不需私钥; 3) 31 01 0F01 改成真门禁, 签名与字节不匹配就 aborted 不写 CPS; 4) 37FE 写完回读确认; 5) 写入默认 11 01 复位, 复位后自动重连并逐块重读, 给出复位后 N/N 一致的硬证据; 6) 预览 20/20 一致时不再直接判不用写, 改为询问是否强制全量重写。根因: 0.9.42-0.9.59 一直跳过签名块, 20 块只写 19 块, 31 01 0F01 过不了导致编码不持久。",
-  "size": 21173327
+  "version": "0.9.62",
+  "versionCode": 72,
+  "url": "https://aka.doubaocdn.com/s/isXb7i5lIO",
+  "mirror": "https://aka.doubaocdn.com/s/Ux3DZMZcVg",
+  "sha256": "4aa11c0da728feafa11f169e7629347f63a58a8f1cccfc35ce4b171a94f2ce69",
+  "notes": "v0.9.62 修「检查不到新版本」: 1) 补上 0.9.61 漏推的清单; 2) 镜像顺序改成按可信度排, gh-proxy/ghfast 实时回源在前, jsDelivr 的 @main (实测滞后到 0.9.35/vc45) 挪到最后兜底; 3) 新增 stale 识别: 清单 versionCode 比本机小就在日志与弹窗里明说缓存滞后, 不再静默报已是最新; 4) 检查结果弹窗直接显示清单版本号。",
+  "size": 20746075
 }
