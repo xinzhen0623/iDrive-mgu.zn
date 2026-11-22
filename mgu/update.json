@@ -1,9 +1,9 @@
 {
-  "version": "0.9.55",
-  "versionCode": 65,
-  "url": "https://aka.doubaocdn.com/s/GxNiBNHaCM",
-  "mirror": "https://aka.doubaocdn.com/s/6xsIvCTIVF",
-  "sha256": "fbc728fb807de7ddd3e20292378ac7756b8630567924de499de99d36ffd19cb8",
-  "notes": "v0.9.55 备份目录收干净。目录改成 cafd/<VIN>/<时间戳>/, 每份只留 backup.json(写回源) + coding_<VIN>_<时间戳>.json(电脑控制台格式), txt/csv/裸镜像/结构说明/RESTORE/SHA256SUMS/zip 全部不再生成; 每个 VIN 只留最近 3 份, 多的自动删; 旧版扁平文件夹自动归位到 cafd/<VIN>/<时间戳>/ (只搬家不删数据); 找备份改为递归, 新旧结构都认。分享改成一个 json。带 0.9.54 的刷写一条龙与 0.9.53 的预检修复。签名仍 59bdbe9d...。",
-  "size": 20734616
+  "version": "0.9.56",
+  "versionCode": 66,
+  "url": "https://aka.doubaocdn.com/s/6EyWIx6OTC",
+  "mirror": "https://aka.doubaocdn.com/s/BQpZ2n8SL4",
+  "sha256": "dbb9cb86fff1b799cb723022fa8f2c6b994b815130ef7e556c26134acae512ac",
+  "notes": "v0.9.56 去掉刷完自动写回 CAFD(实车 18:57 自动写回时 27 01 回 7F 27 7F: 刷完 6 秒 ECU 安全访问还没放开)。刷完只提示状态, 由用户手动点恢复。恢复改一步式: 点一下就自动挑最新备份+只读预览+确认+逐块 2E 写入回读。解锁加会话复位重试(10 01 -> 等 2 秒 -> 10 03 -> 27 01, 最多 3 轮)。去掉写原值自检门槛。小程序安装超时 180s -> 300s。",
+  "size": 20734467
 }
