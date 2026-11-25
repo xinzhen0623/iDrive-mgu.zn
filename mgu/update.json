@@ -1,9 +1,9 @@
 {
-  "version": "0.9.62",
-  "versionCode": 72,
-  "url": "https://aka.doubaocdn.com/s/aM2KkdrPI5",
-  "mirror": "https://aka.doubaocdn.com/s/7fuuxD9rgV",
-  "sha256": "962cb4c89ba61463d1e98b63df940666d8516d00831222af847658d6ad0897fa",
-  "notes": "v0.9.62 修「检查不到新版本」: 1) 补上 0.9.61 漏推的清单; 2) 镜像链改成实测可用的顺序: raw 主通道 -> ghfast.top 实时回源 -> jsDelivr 兜底(实测滞后到 0.9.35/vc45); gh-proxy.com 实测 403 已移除; 3) 新增 stale 识别: 清单 versionCode 比本机小就在日志与弹窗里明说缓存滞后, 不再静默报已是最新; 4) 检查结果弹窗直接显示清单版本号。",
-  "size": 21174513
+  "version": "0.9.63",
+  "versionCode": 73,
+  "url": "https://aka.doubaocdn.com/s/bIeZIkl0ur",
+  "mirror": "https://aka.doubaocdn.com/s/53T9OmoaHd",
+  "sha256": "ebf58f1121af109cd78db647393adee8ee7f2c235b878eb51c0555a033a715a8",
+  "notes": "v0.9.63 对着 GitHub 上游重过四条线：1) CAFD 写回的真正修法——带签名块的备份一律全量 20 块(19 数据块 + 0x3016 签名块最后写)，原来只勾差异块导致签名从不入列、永远只写 19 块、31 01 0F01 必败、复位后回退；签名形状不符改为明确失败不再静默跳过；备份端 0x3015/0x3016 单独补读，扫段跳过也一定采到。2) CarPlay 新增 /usr/bin/carplay 与 aapd 权限体检(0700 会 203/EXEC 并让车机反复重启)。3) 故障码三态按 ISO 14229-1 位定义修正(0x20=历史失败、0x40=本循环未测完，原来这两条错位，与 ISTA 对不上)。4) 小程序写入车机与上游核对一致，保留本车容错版。",
+  "size": 20831590
 }
