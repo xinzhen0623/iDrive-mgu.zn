@@ -1,9 +1,9 @@
 {
-  "version": "0.9.63",
-  "versionCode": 73,
-  "url": "https://aka.doubaocdn.com/s/bIeZIkl0ur",
-  "mirror": "https://aka.doubaocdn.com/s/53T9OmoaHd",
-  "sha256": "ebf58f1121af109cd78db647393adee8ee7f2c235b878eb51c0555a033a715a8",
-  "notes": "v0.9.63 CAFD 写回改全量 20 块(签名块最后写，原来只勾差异导致永远只写 19 块) + 备份端补读 0x3015/0x3016 + CarPlay 权限体检 + 故障码三态按 ISO 14229-1 修正。",
-  "size": 20831590
+  "version": "0.9.64",
+  "versionCode": 74,
+  "url": "https://aka.doubaocdn.com/s/T0p4VTtqT6",
+  "mirror": "https://aka.doubaocdn.com/s/nz402YEiiM",
+  "sha256": "98accf4d9abd2b636bd90f2a093d5901148fb60d6f45bf6940ea37a0dd201947",
+  "notes": "v0.9.64 CAFD 目标可选 MGU 0x63 / BDC 0x40；BDC 备份与预览可用，写入取到种子即停（M7F1 不适用 BDC）。",
+  "size": 20749812
 }
