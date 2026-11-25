@@ -1,9 +1,9 @@
 {
-  "version": "0.9.62",
-  "versionCode": 72,
-  "url": "https://aka.doubaocdn.com/s/aM2KkdrPI5",
-  "mirror": "https://aka.doubaocdn.com/s/7fuuxD9rgV",
-  "sha256": "962cb4c89ba61463d1e98b63df940666d8516d00831222af847658d6ad0897fa",
-  "notes": "v0.9.62 修检查不到新版本: 补推 0.9.61 清单 + 镜像改成 raw/ghfast(实时)/jsDelivr(兜底) + 清单比本机旧时明确告警。",
-  "size": 21174513
+  "version": "0.9.63",
+  "versionCode": 73,
+  "url": "https://aka.doubaocdn.com/s/bIeZIkl0ur",
+  "mirror": "https://aka.doubaocdn.com/s/53T9OmoaHd",
+  "sha256": "ebf58f1121af109cd78db647393adee8ee7f2c235b878eb51c0555a033a715a8",
+  "notes": "v0.9.63 CAFD 写回改全量 20 块(签名块最后写，原来只勾差异导致永远只写 19 块) + 备份端补读 0x3015/0x3016 + CarPlay 权限体检 + 故障码三态按 ISO 14229-1 修正。",
+  "size": 20831590
 }
